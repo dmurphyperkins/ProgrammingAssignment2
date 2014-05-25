@@ -2,7 +2,7 @@
 ## and cache the result. If the inverse has already been cached, they will produce the cached result
 ## without recalculating it.
 
-## makeCacheMatrix crestes objects which will cache matrix inversions solved by cachSolve
+## makeCacheMatrix creates objects which will cache matrix inversions solved by cacheSolve
 
 makeCacheMatrix <- function(x = matrix()) { i <- NULL
         set <- function(y) {
@@ -19,8 +19,8 @@ makeCacheMatrix <- function(x = matrix()) { i <- NULL
 }
 
 
-## cacheSolve inverts new matrices, caches them, and produces the result. If the matrix has already been cached,
-## cacheSolve will not recalcuate the inverse, but willproduce the cached result.
+## cacheSolve inverts new matrices, caches them, and produces the inverted matrix. If the matrix has already been cached,
+## cacheSolve will not recalcuate the inverse, but will produce the cached matrix.
 
 cacheSolve <- function(x, ...) {  i <- x$getsolve()
         if(!is.null(i)) {
@@ -31,5 +31,4 @@ cacheSolve <- function(x, ...) {  i <- x$getsolve()
         i <- solve(data, ...)
         x$setsolve(i)
         i
-        ## Return a matrix that is the inverse of 'x'
 }
